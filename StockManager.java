@@ -123,4 +123,22 @@ public class StockManager
             }
         }
     }
+    
+    /**
+     * Metodo para buscar un producto de todos los que tenemos pasando como parametro el nombre del producto.
+     */
+    public Product findProduct(String name)
+    {
+        boolean encontrado = false;
+        int index = 0;
+        Product producto = null;
+        while(index < stock.size() && !encontrado) {
+            if(stock.get(index).getName().equals(name)) {
+                producto = stock.get(index);
+                encontrado = true;
+            }
+            index ++;
+        }
+        return producto;
+    }
 }
