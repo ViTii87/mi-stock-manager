@@ -102,4 +102,18 @@ public class StockManager
             System.out.println("No hay ningun producto.");
         }
     }
+
+    /**
+     * Metodo que imprime por pantalla los detalles de los productos que estan por debajo del stock limite pasado por parametro
+     */
+    public void underGivenNumberInStock(int limite)
+    {
+        for(Product producto : stock) 
+        {
+            if(producto.getQuantity() < limite)
+            {
+                System.out.println(producto);
+            }
+        }
+    }
 }
