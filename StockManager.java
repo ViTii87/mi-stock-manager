@@ -37,6 +37,14 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        Product producto = findProduct(id);
+        if(producto != null) {
+            producto.increaseQuantity(amount);
+        }
+        else
+        {
+            System.out.println("El ID introducido no se corresponde con ningun producto.");
+        }
     }
 
     /**
@@ -69,10 +77,10 @@ public class StockManager
      */
     public int numberInStock(int id)
     {
-        Product product = findProduct(id);
+        Product producto = findProduct(id);
         int stockDelItem = 0;
-        if(product != null) {
-            stockDelItem = product.getQuantity();
+        if(producto != null) {
+            stockDelItem = producto.getQuantity();
         } 
         return stockDelItem;
     }
