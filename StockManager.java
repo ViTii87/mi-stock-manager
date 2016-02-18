@@ -46,7 +46,18 @@ public class StockManager
      */
     public Product findProduct(int id)
     {
-        return null;
+        boolean encontrado = false;
+        int index = 0;
+        Product producto = null;
+        while(index < stock.size() && !encontrado) {
+            if(stock.get(index).getID() == id) {
+                producto = stock.get(index);
+                encontrado = true;
+            }
+            index ++;
+        }
+        return producto;
+
     }
 
     /**
@@ -66,7 +77,7 @@ public class StockManager
      */
     public void printProductDetails()
     {
-        if(stock.size() != 0)
+        if(stock.size() > 0)
         {
             for(Product product : stock) 
             {
